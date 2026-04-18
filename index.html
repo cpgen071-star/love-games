@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Love Game ❤️</title>
+    <style>
+        body {
+            background-color: black;
+            color: pink;
+            text-align: center;
+            font-family: Arial;
+            margin-top: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: pink;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>💖 Welcome to the Love Game 💖</h1>
+    <p id="question">Do you love me? 😏</p>
+
+    <div id="buttons">
+        <button onclick="answer('yes')">Yes ❤️</button>
+        <button onclick="answer('no')">No 😜</button>
+    </div>
+
+    <script>
+        let step = 1;
+
+        function answer(choice) {
+            if (step === 1) {
+                if (choice === "yes") {
+                    document.getElementById("question").innerText = "Hehe I knew it 😏❤️\nWho is the cutest person?";
+                    
+                    document.getElementById("buttons").innerHTML = `
+                        <button onclick="answer('you')">You ❤️</button>
+                        <button onclick="answer('me')">Me 😎</button>
+                    `;
+                    
+                    step = 2;
+                } else {
+                    alert("Wrong answer 😏 try again ❤️");
+                }
+            }
+
+            else if (step === 2) {
+                if (choice === "me") {
+                    alert("Yes I know hehe 😎 but try again and find the right answer ❤️");
+                } else if (choice === "you") {
+                    document.getElementById("question").innerText = "Correct 😍 It's YOU ❤️\nWill you stay with me forever?";
+                    
+                    document.getElementById("buttons").innerHTML = `
+                        <button onclick="answer('yes_final')">Yes 💍</button>
+                        <button onclick="answer('no_final')">No 😈</button>
+                    `;
+                    
+                    step = 3;
+                }
+            }
+
+            else if (step === 3) {
+                if (choice === "yes_final") {
+                    document.getElementById("question").innerText = "Yayyyy 💕 I love you so much ❤️";
+                } else {
+                    document.getElementById("question").innerText = "Too late 😈 you're stuck with me forever 😂❤️";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
